@@ -3,7 +3,7 @@
  * BynaMailer.
  * PHP Version 5
  * @package PHPMailer
- * @link https://github.com/PHPMailer/PHPMailer/ The PHPMailer GitHub project
+ * @link https://github.com/bynalab/Bynamailer-v2.4.0
  * @author Abubakar Abdusalam (bynalab) <algorithm290@gmail.com>
  * @copyright 2012 - 2014 Marcus Bointon
  * @note This program is distributed in the hope that it will be useful - WITHOUT

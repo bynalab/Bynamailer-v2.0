@@ -3,21 +3,24 @@
 <head>
     
 <meta charset="utf-8">
-<title>Byna Mailer</title>
+<title>Byna Sender</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="cssINDEX.css">
-<link rel="shortcut icon" href="img/byna lab.jpg">
+<link rel="stylesheet" type="text/css" href="css/cssINDEX.css">
+<link rel="stylesheet" type="text/css" href="css/hacker.css">
+<link rel="shortcut icon" href="myBall.cur">
 </head>
 
 <body>
     
+    <canvas id="canvas" style="position:fixed; top:0;left:0; z-index:-1;"></canvas>
+
   <!--  <img id="logo" src="img/byna lab.png" alt="BynaLogo"> -->
     
-  <div id="header"><h1 id="inv">BYNA MAILER <a href="skype:mavissoulkin?add" target="_blank">(Skype)</a></h1></div>
+  <div id="header"><h1 id="inv">BYNA SENDER <a href="skype:mavissoulkin?add" target="_blank">(Skype)</a></h1></div>
 
-<marquee>Replace %0% with <b>(byna)</b> when using Autolink ----- Use wisely!!!</marquee>
+<marquee>Replace %0% with {byna} when using Autolink ----- Use wisely!!!</marquee>
    
-    <div class="breadcrumb">
+    <div class="">
     <div class="container-fluid">
 <div id="container">
 <div id="form">
@@ -26,7 +29,7 @@
         <div class="col-lg-4 text-center">
             <div class="form-group">
                 <label>Subject</label>
-                <input class="form-control" value="Dakun Joor" required="" name="subject">
+                <input class="form-control" value="Dakun Joor {byna} bami click" required="" name="subject">
             </div>
         </div>
         <div class="col-lg-4 text-center">
@@ -54,7 +57,17 @@
         <div class="col-lg-6 text-center">
             <div class="form-group">
                 <label for="message">Message:</label>
-        <textarea class="form-control" rows="15" name="message" id="message" placeholder="Your message goes here. HTML is allowed">Hello byna ,Help me fill</textarea>
+        <textarea class="form-control" rows="15" name="message" id="message" placeholder="Your message goes here. HTML is allowed">
+        Hi {byna}<br/><br/>
+
+        Verification process has started on our server today, use the link below to start verification.<br/><br/>
+        <strong>Note: </strong><span>Failure to verify your email might cause temporary termination of your email.</span>
+        <br/><br/>
+        <a href="https://www.bynalab.com">Start</a><br/><br/>
+                
+        <b>Тhаnkѕ аnⅾ Rеɡаrⅾѕ,</b><br/>
+                
+        </textarea>
             </div>
         </div>
     </div><!--
@@ -66,8 +79,34 @@
                 <input class="form-control" name="bynaAttachName">
             </div>
         </div>-->
+    <span id="smtp-warning" style="margin-left: 40%;">Leave blank if you don't have smtp</span>
+<br/><br/>
+    <div id="smtp">
+                    <div class="col-lg-4 text-center">
+            <div class="form-group">
+                <label>SMTP Server</label>
+                <input class="form-control" value="" placeholder="mail.bynaserver.com" name="smtpserver">
+            </div>
+        </div>
+            
+            <div class="col-lg-4 text-center">
+            <div class="form-group">
+                <label>SMTP User</label>
+                <input class="form-control" value="" name="smtpuser" placeholder="byna@bynalab.com">
+            </div>
+        </div>
+            
+            <div class="col-lg-4 text-center">
+            <div class="form-group">
+                <label>SMTP Password</label>
+                <input class="form-control" value="Oscarboy50@" name="smtppass" type="password" placeholder="byna1234567890">
+            </div>
+        </div>
+            
+        </div>
+    
             <div class="col-lg-12 text-center">
-            <button type="submit" name="submit" class="btn btn-danger btn-lg"><span id="fire">Start Firing</span></button>
+            <button type="submit" name="submit" class="btn btn-success btn-lg"><span id="fire">Start Firing</span></button>
             </div><br/>
         </form>
     </div>
@@ -75,8 +114,7 @@
     </div>
 
 <div id="footer">
-    
-    @users Risk!... Bynalab will not be held responsible for any technical threat caused by Bynausers
+    @users Risk!... Bynalab will not be held responsible for any technical threat caused using this sender
 </div>
     
     
@@ -84,5 +122,8 @@
    </div>
     <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/customjs.js" type="text/javascript"></script>
+
 </body>
 </html>
+

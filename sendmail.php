@@ -19,12 +19,17 @@ $subjects = $_POST['subject'];
 $message = $_POST['message'];
 //$bynaAttach = $_POST['bynaAttach'];
 //$bynaAttachName = $_POST['bynaAttachName'];
+$delay = $_POST['delay'];
 $bynapostmaster = $_POST['bynapostmaster'];
 $sender = $_POST['sender'];
 $smtpserver = $_POST['smtpserver'];
 $smtpuser = $_POST['smtpuser'];
 $smtppass = $_POST['smtppass'];
 $regard = "<br/>&copy; 2019 Office Service Center<br/>";
+$urls = "https://www.google.com \n https://www.facebook.com \n https://www.twitter.com \n https://www.bynalab.com \n https://www.gmail.com" ;
+$time = date("h:i:s");
+$date = date("D, d M Y");
+$date_time = "$date $time";
 
 function smtp_exist($smtpserver, $smtpuser, $smtppass) {
     if(isset($smtpserver) && isset($smtpuser) && isset($smtppass)){
@@ -36,14 +41,20 @@ function smtp_exist($smtpserver, $smtpuser, $smtppass) {
     }
 }
 
+function get_username(){
+
+
+}
+
 try {
 
     //Server settings
     
-    if( smtp_exist($smtpserver, $smtpuser, $smtppass) ){ 
+    //if( smtp_exist($smtpserver, $smtpuser, $smtppass) ){ 
 
         $bynamailer->SMTPDebug = 2;                                 
-        $bynamailer->isSMTP();        
+        $bynamailer->isSMTP();                           
+        //$bynamailer->SMTPSecure = "none";
         $bynamailer->Host = $smtpserver;                   
         $bynamailer->SMTPAuth = true;                               
         $bynamailer->Username = $smtpuser;                        
@@ -51,7 +62,7 @@ try {
         $bynamailer->SMTPSecure = 'tls';                           
         $bynamailer->Port = 587;    
 
-    }                              
+   // }                              
     
     //Recipients
     $bynamailer->setFrom($bynapostmaster, $sender);          
@@ -76,31 +87,45 @@ try {
 
     
     $to = explode("\n", $tos);
+
+    $links = explode("\n", $urls);
+    $countLinks = count($links);
     
     $countEmail = count($to);
     $countArray = 0;
-    $over = 1;
+    $over = 0;
     
 while($to[$countArray])
 {
+    $link_randomizer = $links[array_rand($links)];
+
+
     $mail = str_replace(array("\n","\r\n"),'',$to[$countArray]);
     $subject = preg_replace("/{byna}/", $mail, $subjects);	
-    $message = preg_replace("/{byna}/", $mail, $message);
-    $message = preg_replace("/{regard}/", $regard, $message);
+    $message1 = preg_replace("/{byna}/", $mail, $message);
+    $message1 = preg_replace("/{multilinks}/", $link_randomizer, $message1);
+    $message1 = preg_replace("/{regard}/", $regard, $message1);
+    $message1 = preg_replace("/{datetime}/", $date_time, $message1);
+    $message1 = preg_replace("/{date}/", $date, $message1);
+    $message1 = preg_replace("/{time}/", $time, $message1);
+    
     
     $bynamailer->addAddress($mail);
     
     //Content
     $bynamailer->isHTML(true);                                 
     $bynamailer->Subject = $subject;
-    $bynamailer->Body    = $message;
+    $bynamailer->Body    = $message1;
     //$bynamailer->addAttachment('pen.jpg'); 
 
     $bynamailer->send();
-    
-$bynamailer->ClearAddresses();   
+     
 $countArray++;
 $over++;
+
+sleep(rand(3, $delay));
+
+$bynamailer->ClearAddresses();  
 
 }
 

@@ -7,7 +7,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/cssINDEX.css">
 <link rel="stylesheet" type="text/css" href="css/hacker.css">
-<link rel="shortcut icon" href="myBall.cur">
+<link rel="shortcut icon" href="bynalogo.ico" type="image/x-icon" />
 </head>
 
 <body>
@@ -16,10 +16,35 @@
 
   <!--  <img id="logo" src="img/byna lab.png" alt="BynaLogo"> -->
     
-  <div id="header"><h1 id="inv">BYNA SENDER <a href="skype:mavissoulkin?add" target="_blank">(Skype)</a></h1></div>
-
-<marquee>Replace %0% with {email} when using Autolink ----- Use wisely!!!</marquee>
+  <div id="header"><h1 id="inv">BYNA SENDER <a href="https://icq.im/bynalab" target="_blank">(ICQ)</a></h1></div>
    
+  <center>
+    <div id="accordion">
+        <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+            <button style="font-size:20px" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                View Keywords
+            </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                Reciever Email: b-email <br/>
+                Receiver Email (Base64): b-b64email <br/>
+                Receiver Username: b-user <br/>
+                Email Domain: b-domain <br/>
+                Current Time: b-time <br/>
+                Today's Date: b-date <br/>
+                Random: b-rand <br/>
+                Md5: b-md5 <br/>
+            </div>
+        </div>
+        </div>
+    </div>
+</center>
+
+
     <div class="">
     <div class="container-fluid">
 <div id="container">
@@ -29,20 +54,20 @@
         <div class="col-lg-4 text-center">
             <div class="form-group">
                 <label>Subject</label>
-                <input class="form-control" value="Dakun Joor {byna} bami click" required="" name="subject">
+                <input class="form-control" value="Hello b-user" required="" name="subject" placeholder="Hello b-user">
             </div>
         </div>
         <div class="col-lg-4 text-center">
             <div class="form-group">
-                <label>Post-Master</label>
-                <input class="form-control" value="postmaster@gmail.com" name="bynapostmaster" required>
+                <label>Sender Email</label>
+                <input class="form-control" placeholder="postmaster@gmail.com" value="postmaster@gmail.com" name="bynapostmaster" required>
             </div>
         </div>
         
         <div class="col-lg-4 text-center">
             <div class="form-group">
-                <label>Sender</label>
-                <input class="form-control" value="Alanu Mi" name="sender" required>
+                <label>Sender Name</label>
+                <input class="form-control" placeholder="Byna Sender" value="Byna Sender" name="sender" required>
             </div>
         </div>
     </div>
@@ -51,30 +76,19 @@
         <div class="col-lg-6 text-center">
             <div class="form-group">
                 <label for="recipient">Recipients:</label>
-                <textarea class="form-control" name="recipient" rows="15" id="recipient" placeholder="Insert your Alanu Emails. Example: bynalab@live.com, emails are in 'New line' format">skamaWatch@aj.com</textarea>
+                <textarea class="form-control" name="recipient" rows="15" id="recipient" placeholder="Insert Recipients. Example: bynalab@live.com, emails are in 'New line' format" required>postmaster@gmail.com</textarea>
             </div>
         </div>
         <div class="col-lg-6 text-center">
             <div class="form-group">
-                <label for="message">Message:</label>
-        <textarea style="font-family: Arial, Helvetica, sans-serif;" class="form-control" rows="15" name="message" id="message" placeholder="Your message goes here. HTML is allowed">
-Hi {email} <br/>
-Date is: {date} <br/>
-Time is: {time} <br/>
-Date and Time is: {datetime} <br/>
-Link: {multilinks} <br/>
-{regard} </textarea>
+                <label for="message">Letter:</label>
+        <textarea style="font-family: Arial, Helvetica, sans-serif;" class="form-control" rows="15" name="message" id="message" placeholder="Your message goes here. HTML is allowed" required>Your letter here. HTML is allowed</textarea>
             </div>
         </div>
-    </div><!--
+    </div>
     <br/>
             <input type="file" name="bynaAttach"/><br/>
-            <div class="row col-lg-4">
-            <div class="form-group">
-                <label>Attachment Name</label>
-                <input class="form-control" name="bynaAttachName">
-            </div>
-        </div>-->
+
     <span id="smtp-warning" style="margin-left: 40%;">Leave blank if you don't have smtp</span>
 <br/><br/>
     <div id="smtp">
@@ -95,7 +109,7 @@ Link: {multilinks} <br/>
             <div class="col-lg-3 text-center">
             <div class="form-group">
                 <label>SMTP Password</label>
-                <input class="form-control" value="Oscarboy50@" name="smtppass" type="password" placeholder="byna1234567890">
+                <input class="form-control" value="" name="smtppass" type="password" placeholder="password">
             </div>
         </div>
 
@@ -105,7 +119,7 @@ Link: {multilinks} <br/>
                 <script>
                     document.write("<select class='form-control' name='delay'>");
                     for (var i = 4; i <= 100; i++) {
-                        document.write("<option>" + i + " secs </option>");
+                        document.write("<option value = " + i + ">" + i + " secs </option>");
                     } 
                     document.write("</select>");
                 </script>

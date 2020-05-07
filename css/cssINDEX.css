@@ -2,13 +2,9 @@
 /* CSS for byna */
 body{
     /* background-image: url(img/byna lab.jpg);  -color: #066; */
-    font-family: 'Inconsolata', 'Monaco', monospace;
     color: black;
     background-image: url(img/bynalab.png);
 }
-canvas {
-    background: #232323;
-  }
 .breadcrumb{
     color: white;
     background-color: green;
@@ -26,7 +22,7 @@ canvas {
     font-weight: bolder;
     margin-left: 100px;
     margin-right: 100px;  
-    color: black;
+    color: white;
 }
 h1{
     font-family: arial black;
@@ -56,19 +52,3 @@ a:visited{
 marquee{
     color: red;
 }
-
-.connecting-dots {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center center;
-    position: relative;
-    margin: 0 auto;
-  }
-
-  canvas{
-    position: absolute;
-    z-index: 1
-  }
